@@ -16,8 +16,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
 
     if (response.ok) {
       alert(`Bem-vindo, ${data.usuario}!`);
-      // Aqui você pode redirecionar para a página principal
-      // window.location.href = "pagina_principal.html";
+
     } else {
       alert(data.message || "Erro no login");
     }
@@ -27,7 +26,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
   }
 });
 
-// Função para registrar usuário
+
 async function registrarUsuario(usuario, senha, nome, cpf, dataNascimento, endereco) {
   try {
     const response = await fetch("http", {
@@ -47,8 +46,7 @@ async function registrarUsuario(usuario, senha, nome, cpf, dataNascimento, ender
 
     if (response.ok) {
       alert(data.message);
-      // Pode redirecionar para login após registro
-      // window.location.href = "index.html";
+      
     } else {
       alert(data.message || "Erro no registro");
     }
@@ -58,7 +56,7 @@ async function registrarUsuario(usuario, senha, nome, cpf, dataNascimento, ender
   }
 }
 
-// Exemplo de uso: vincular um formulário de cadastro (supondo que exista)
+
 const cadastroForm = document.getElementById("cadastro-form");
 if (cadastroForm) {
   cadastroForm.addEventListener("submit", (e) => {
