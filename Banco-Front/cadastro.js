@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("cadastro-form");
   const message = document.getElementById("message");
 
-  // Ajustar max da data para hoje para não aceitar datas futuras
+  
   const dataNascimentoInput = document.getElementById("data_nascimento");
   const hoje = new Date().toISOString().split("T")[0];
   dataNascimentoInput.setAttribute("max", hoje);
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    message.textContent = ""; // limpa mensagem
+    message.textContent = "";
 
     const usuario = document.getElementById("usuario").value.trim();
     const senha = document.getElementById("senha").value.trim();
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/cadastro", {
+      const response = await fetch("http://127.0.0.1:5500/Banco-Front/cadastro.html", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
