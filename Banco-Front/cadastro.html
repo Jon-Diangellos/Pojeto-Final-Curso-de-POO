@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cadastro - TriBank</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" sizes="64x64" href="img/icone_2.png" />
+</head>
+<body>
+  <div class="container">
+    <h1>Cadastro de Usuário</h1>
+    <form id="cadastro-form" novalidate>
+      <label for="usuario" class="sr-only">Usuário</label>
+      <input
+        type="text"
+        id="usuario"
+        name="usuario"
+        placeholder="Usuário"
+        required
+        autocomplete="username"
+      />
+
+      <label for="senha" class="sr-only">Senha</label>
+      <input
+        type="password"
+        id="senha"
+        name="senha"
+        placeholder="Senha"
+        required
+        autocomplete="new-password"
+      />
+
+      <label for="cpf" class="sr-only">CPF</label>
+      <input
+        type="text"
+        id="cpf"
+        name="cpf"
+        placeholder="CPF"
+        pattern="\d{11}"
+        title="Digite um CPF válido com 11 números"
+        required
+      />
+
+      <label for="data_nascimento" class="sr-only">Data de Nascimento</label>
+      <input
+        type="date"
+        id="data_nascimento"
+        name="data_nascimento"
+        placeholder="Data de Nascimento"
+        required
+        max=""
+      />
+
+      <label for="endereco" class="sr-only">Endereço</label>
+      <input
+        type="text"
+        id="endereco"
+        name="endereco"
+        placeholder="Endereço"
+        required
+      />
+
+      <button type="submit">Registrar</button>
+    </form>
+
+    <p id="message" role="alert" aria-live="assertive"></p>
+
+    <p>Já tem uma conta? <a href="index.html">Faça login aqui</a></p>
+  </div>
+
+  <script src="cadastro.js"></script>
+</body>
+</html>

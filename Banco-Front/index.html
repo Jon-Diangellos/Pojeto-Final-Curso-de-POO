@@ -1,24 +1,47 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Login - TriBank</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" type="image/png" sizes="64x64"  href="img/icone_2.png">
-
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" sizes="64x64" href="img/icone_2.png" />
 </head>
 <body>
   <div class="container">
     <h1>Bem Vindo ao TriBank</h1>
-    <form id="login-form">
-      <input type="text" id="username" placeholder="CPF" required>
-      <input type="password" id="password" placeholder="Senha" required>
+    <form id="login-form" novalidate>
+      <label for="username" class="sr-only">CPF</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="CPF"
+        required
+        autocomplete="username"
+        pattern="\d{11}"
+        title="Digite um CPF válido com 11 números"
+      />
+
+      <label for="password" class="sr-only">Senha</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Senha"
+        required
+        autocomplete="current-password"
+      />
+
       <button type="submit">Entrar</button>
     </form>
+
+    <p id="message" role="alert" aria-live="assertive"></p>
+
+    <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se aqui</a></p>
   </div>
-  <script src="js/main.js"></script>
+
+  <script src="main.js"></script>
 </body>
 </html>
 
