@@ -1,0 +1,22 @@
+<!-- dashboard.html (início da tela principal) -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Banco</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Bem-vindo à sua conta</h1>
+    <p id="saldo">Carregando saldo...</p>
+    <button onclick="logout()">Sair</button>
+  </div>
+  <script>
+    function logout() {
+      localStorage.removeItem('token');
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>
