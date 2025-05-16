@@ -74,3 +74,30 @@ if (cadastroForm) {
     registrarUsuario(usuario, senha, nome, cpf, dataNascimento, endereco);
   });
 }
+
+
+async function carregarExtrato(usuario) {
+  try {
+    const res = await fetch(`http://localhost:5000/api/extrato/${usuario}`);
+    if (!res.ok) {
+      alert("Erro ao carregar extrato");
+      return;
+    }
+    const data = await res.json();
+    const extratoList = document.getElementById("extrato-list");
+    if (!extratoList) return;
+
+    extratoList.innerHTML = ""; 
+
+    data.extrato.forEach(mov => {
+      const item = document.createElement("li");
+      item.textContent = `${mov.data} - ${mov.tipo} - R$${mov.valor.toFixed(2)} - ${mov.descricao}`;
+      extratoList.appendChild(item);
+    });
+  } catch (error) {
+    alert("Erro ao carregar extrato");
+    console.error(error);
+  }
+}
+
+

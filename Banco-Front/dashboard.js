@@ -40,7 +40,13 @@ async function carregarExtrato() {
 
     const lista = document.getElementById('extrato-list');
     lista.innerHTML = '';
-    data.forEach(tx => {
+    
+    if (!data.extrato || data.extrato.length === 0) {
+      lista.innerHTML = '<li>Sem movimentações.</li>';
+      return;
+    }
+
+    data.extrato.forEach(tx => {
       const li = document.createElement('li');
       li.textContent = `${tx.data} - ${tx.tipo} - R$ ${tx.valor.toFixed(2)}`;
       lista.appendChild(li);
@@ -158,7 +164,7 @@ document.getElementById('logout-btn').addEventListener('click', () => {
   window.location.href = 'index.html';
 });
 
-// Carregar dados ao abrir a página
+
 carregarDadosUsuario();
 carregarSaldo();
 carregarExtrato();

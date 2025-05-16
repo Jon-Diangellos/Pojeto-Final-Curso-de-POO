@@ -102,6 +102,13 @@ def transferir():
         return jsonify({"message": f"Transferência de R${valor:.2f} realizada com sucesso."})
     else:
         return jsonify({"message": "Falha na transferência, saldo insuficiente ou usuário não encontrado."}), 400
+    
+@app.route("/api/extrato/<usuario>", methods=["GET"])
+def extrato(usuario):
+    extrato = sistema_banco.obter_extrato(usuario)
+    if extrato is not None:
+        return jsonify({"extrato": extrato})
+    return jsonify({"message": "Usuário não encontrado"}), 404
 
 if __name__ == "__main__":
     app.run(debug=True)
