@@ -41,11 +41,13 @@ button:hover {
 body {
   font-family: Arial, sans-serif;
   margin: 20px;
+  text-align: center;
 }
 h2 {
   margin-top: 30px;
-  border-bottom: 2px solid #444;
+  border-bottom: 3px solid #899496;
   padding-bottom: 5px;
+  text-align: center;
 }
 section {
   margin-bottom: 20px;
@@ -65,20 +67,80 @@ label {
 #extrato-list {
   max-height: 200px;
   overflow-y: auto;
-  border: 1px solid #ccc;
+  border: 1px solid #000000;
   padding: 5px;
   width: 320px;
 }
 #extrato-list li {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #000000;
   padding: 5px 0;
+  text-align: center;
 }
 #message {
   margin-top: 10px;
   font-weight: bold;
+  text-align: center;
 }
 .flex-row {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+
 }
+#transferencia-form {
+border-radius: 30px;
+background-color: #f9f9f9;
+text-align: center;
+}
+#usuario_destino {
+width: 90%;
+margin: 10px auto;
+border: #3498db solid 1px;
+border-radius: 5px;
+
+}
+#valor_transferencia {
+width: 90%;
+margin: 10px auto;
+border: #3498db solid 1px;
+border-radius: 5px;
+}
+#valor_deposito {
+width: 90%;
+margin: 10px auto;
+border: #3498db solid 1px;
+border-radius: 5px;
+}
+#deposito-form {
+  border-radius: 30px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+#valor_saque {
+width: 90%;
+margin: 10px auto;
+border: #3498db solid 1px;
+border-radius: 5px;
+}
+#saque-form {
+  border-radius: 30px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+#dados-usuario {
+text-align: center;
+}
+#logout-btn {
+  width: 50px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 40px;
+} 
