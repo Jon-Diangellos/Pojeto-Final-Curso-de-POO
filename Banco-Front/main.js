@@ -1,5 +1,5 @@
 // Login
-document.getElementById("login-form").addEventListener("submit", async (e) => {
+document.getElementById("login-form")?.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const usuario = document.getElementById("username").value.trim();
@@ -16,7 +16,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
 
     if (response.ok) {
       alert(`Bem-vindo, ${data.usuario}!`);
-
+      
     } else {
       alert(data.message || "Erro no login");
     }
@@ -26,7 +26,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
   }
 });
 
-
+// Registrar
 async function registrarUsuario(usuario, senha, nome, cpf, dataNascimento, endereco) {
   try {
     const response = await fetch("http://localhost:5000/api/registrar", {
@@ -46,7 +46,7 @@ async function registrarUsuario(usuario, senha, nome, cpf, dataNascimento, ender
 
     if (response.ok) {
       alert(data.message);
-      
+      document.getElementById("cadastro-form").reset();
     } else {
       alert(data.message || "Erro no registro");
     }
@@ -62,12 +62,12 @@ if (cadastroForm) {
   cadastroForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const usuario = document.getElementById("cad-usuario").value.trim();
-    const senha = document.getElementById("cad-senha").value.trim();
-    const nome = document.getElementById("cad-nome").value.trim();
-    const cpf = document.getElementById("cad-cpf").value.trim();
-    const dataNascimento = document.getElementById("cad-data-nascimento").value.trim();
-    const endereco = document.getElementById("cad-endereco").value.trim();
+    const usuario = document.getElementById("usuario").value.trim();
+    const senha = document.getElementById("senha").value.trim();
+    const nome = document.getElementById("nome")?.value.trim(); 
+    const cpf = document.getElementById("cpf").value.trim();
+    const dataNascimento = document.getElementById("data_nascimento").value.trim();
+    const endereco = document.getElementById("endereco").value.trim();
 
     registrarUsuario(usuario, senha, nome, cpf, dataNascimento, endereco);
   });

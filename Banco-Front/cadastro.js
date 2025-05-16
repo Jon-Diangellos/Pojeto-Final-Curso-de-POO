@@ -8,17 +8,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-
     message.textContent = "";
 
     const usuario = document.getElementById("usuario").value.trim();
     const senha = document.getElementById("senha").value.trim();
-    const nome = document.getElementById("nome").value.trim();
+    const nome = document.getElementById("nome")?.value.trim(); // Corrigido: verifica se o campo existe
     const cpf = document.getElementById("cpf").value.trim();
     const dataNascimento = document.getElementById("data_nascimento").value;
     const endereco = document.getElementById("endereco").value.trim();
 
-    if (!usuario || !senha || !nome || !cpf || !dataNascimento || !endereco) {
+    if (!usuario || !senha || !cpf || !dataNascimento || !endereco || !nome) {
       message.textContent = "Preencha todos os campos.";
       message.style.color = "red";
       return;

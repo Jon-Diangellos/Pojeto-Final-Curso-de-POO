@@ -9,16 +9,17 @@
 </head>
 <body>
   <div class="container">
-    <h1>Bem Vindo ao TriBank</h1>
+    <h1>Bem-vindo ao TriBank</h1>
     <form id="login-form" novalidate>
       <label for="username" class="sr-only">CPF</label>
       <input
         type="text"
         id="username"
         name="username"
-        placeholder="CPF"
+        placeholder="CPF (somente números)"
         required
         autocomplete="username"
+        inputmode="numeric"
         pattern="\d{11}"
         title="Digite um CPF válido com 11 números"
       />
@@ -44,4 +45,3 @@
   <script src="main.js"></script>
 </body>
 </html>
-
