@@ -11,48 +11,53 @@
   <div class="container">
     <h1>Cadastro de Usuário</h1>
     <form id="cadastro-form" novalidate>
-      <label for="usuario" class="sr-only">Usuário</label>
+      <label for="usuario">Usuário</label>
       <input
         type="text"
         id="usuario"
         name="usuario"
         placeholder="Usuário"
         required
-        autocomplete="username"
       />
 
-      <label for="senha" class="sr-only">Senha</label>
+      <label for="senha">Senha</label>
       <input
         type="password"
         id="senha"
         name="senha"
         placeholder="Senha"
         required
-        autocomplete="new-password"
       />
 
-      <label for="cpf" class="sr-only">CPF</label>
+      <label for="nome">Nome completo</label>
+      <input
+        type="text"
+        id="nome"
+        name="nome"
+        placeholder="Nome completo"
+        required
+      />
+
+      <label for="cpf">CPF</label>
       <input
         type="text"
         id="cpf"
         name="cpf"
-        placeholder="CPF"
+        placeholder="CPF (somente números)"
         pattern="\d{11}"
         title="Digite um CPF válido com 11 números"
         required
       />
 
-      <label for="data_nascimento" class="sr-only">Data de Nascimento</label>
+      <label for="data_nascimento">Data de Nascimento</label>
       <input
         type="date"
         id="data_nascimento"
         name="data_nascimento"
-        placeholder="Data de Nascimento"
         required
-        max=""
       />
 
-      <label for="endereco" class="sr-only">Endereço</label>
+      <label for="endereco">Endereço</label>
       <input
         type="text"
         id="endereco"
@@ -65,7 +70,6 @@
     </form>
 
     <p id="message" role="alert" aria-live="assertive"></p>
-
     <p>Já tem uma conta? <a href="index.html">Faça login aqui</a></p>
   </div>
 
