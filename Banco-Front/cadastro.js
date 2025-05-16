@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("cadastro-form");
   const message = document.getElementById("message");
 
-  
   const dataNascimentoInput = document.getElementById("data_nascimento");
   const hoje = new Date().toISOString().split("T")[0];
   dataNascimentoInput.setAttribute("max", hoje);
@@ -14,27 +13,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const usuario = document.getElementById("usuario").value.trim();
     const senha = document.getElementById("senha").value.trim();
+    const nome = document.getElementById("nome").value.trim();
     const cpf = document.getElementById("cpf").value.trim();
     const dataNascimento = document.getElementById("data_nascimento").value;
     const endereco = document.getElementById("endereco").value.trim();
 
-    if (!usuario || !senha || !cpf || !dataNascimento || !endereco) {
+    if (!usuario || !senha || !nome || !cpf || !dataNascimento || !endereco) {
       message.textContent = "Preencha todos os campos.";
       message.style.color = "red";
       return;
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:5500/Banco-Front/cadastro.html", {
+      const response = await fetch("http://localhost:5000/api/registrar", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           usuario,
           senha,
+          nome,
           cpf,
           data_nascimento: dataNascimento,
-          endereco,
-        }),
+          endereco
+        })
       });
 
       const data = await response.json();
@@ -50,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (error) {
       message.textContent = "Erro na conexão com o servidor.";
       message.style.color = "red";
-      console.error(error);
+      console.error("Erro ao registrar:", error);
     }
   });
 });
