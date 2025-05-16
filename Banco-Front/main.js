@@ -6,7 +6,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
   const senha = document.getElementById("password").value.trim();
 
   try {
-    const response = await fetch("http://127.0.0.1:5500/Banco-Front/index.html", {
+    const response = await fetch("http://localhost:5000/api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ usuario, senha }),
@@ -29,7 +29,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
 
 async function registrarUsuario(usuario, senha, nome, cpf, dataNascimento, endereco) {
   try {
-    const response = await fetch("http", {
+    const response = await fetch("http://localhost:5000/api/registrar", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
