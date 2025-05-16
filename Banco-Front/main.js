@@ -16,7 +16,10 @@ document.getElementById("login-form")?.addEventListener("submit", async (e) => {
 
     if (response.ok) {
       alert(`Bem-vindo, ${data.usuario}!`);
-      
+      // Salvar usuário logado no localStorage
+      localStorage.setItem("usuario", data.usuario);
+      // Redirecionar para dashboard após login
+      window.location.href = "dashboard_login.html";
     } else {
       alert(data.message || "Erro no login");
     }
@@ -56,7 +59,6 @@ async function registrarUsuario(usuario, senha, nome, cpf, dataNascimento, ender
   }
 }
 
-
 const cadastroForm = document.getElementById("cadastro-form");
 if (cadastroForm) {
   cadastroForm.addEventListener("submit", (e) => {
@@ -64,7 +66,7 @@ if (cadastroForm) {
 
     const usuario = document.getElementById("usuario").value.trim();
     const senha = document.getElementById("senha").value.trim();
-    const nome = document.getElementById("nome")?.value.trim(); 
+    const nome = document.getElementById("nome")?.value.trim();
     const cpf = document.getElementById("cpf").value.trim();
     const dataNascimento = document.getElementById("data_nascimento").value.trim();
     const endereco = document.getElementById("endereco").value.trim();

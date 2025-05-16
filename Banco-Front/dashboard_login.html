@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bem Vindo ao TriBank</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <h1>Bem Vindo ao TriBank</h1>
+  <button id="logout-btn">Sair</button>
+
+  <section id="dados-usuario">
+    <h2>Dados do Usuário</h2>
+    <p><strong>Nome:</strong> <span id="nome"></span></p>
+    <p><strong>CPF:</strong> <span id="CPF"></span></p>
+    <p><strong>Idade:</strong> <span id="idade"></span></p>
+    <p><strong>Endereço:</strong> <span id="endereco"></span></p>
+  </section>
+
+  <section id="saldo-section">
+    <h2>Saldo</h2>
+    <p>R$ <span id="saldo">Carregando...</span></p>
+  </section>
+
+  <section id="extrato-section">
+    <h2>Extrato</h2>
+    <ul id="extrato-list">
+      <li>Carregando extrato...</li>
+    </ul>
+  </section>
+
+  <section id="operacoes-section">
+    <h2>Operações</h2>
+    <div class="flex-row">
+
+      <form id="transferencia-form" style="flex:1; min-width: 300px;">
+        <h3>Transferência</h3>
+        <label for="usuario_destino">Conta destino (usuário):</label>
+        <input type="text" id="usuario_destino" required placeholder="Usuário destino" />
+        <label for="valor_transferencia">Valor (R$):</label>
+        <input type="number" id="valor_transferencia" min="0.01" step="0.01" required />
+        <button type="submit">Transferir</button>
+        <p class="msg" id="msg-transferencia"></p>
+      </form>
+
+      <form id="deposito-form" style="flex:1; min-width: 300px;">
+        <h3>Depósito</h3>
+        <label for="valor_deposito">Valor (R$):</label>
+        <input type="number" id="valor_deposito" min="0.01" step="0.01" required />
+        <button type="submit">Depositar</button>
+        <p class="msg" id="msg-deposito"></p>
+      </form>
+
+      <form id="saque-form" style="flex:1; min-width: 300px;">
+        <h3>Saque</h3>
+        <label for="valor_saque">Valor (R$):</label>
+        <input type="number" id="valor_saque" min="0.01" step="0.01" required />
+        <button type="submit">Sacar</button>
+        <p class="msg" id="msg-saque"></p>
+      </form>
+
+    </div>
+  </section>
+
+  <script src="dashboard.js"></script>
+
+</body>
+</html>

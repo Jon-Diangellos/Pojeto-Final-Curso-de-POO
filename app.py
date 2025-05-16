@@ -5,12 +5,11 @@ from banco import Banco
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  
+CORS(app)
 
 sistema_usuario = CadastroUsuario()
 sistema_cliente = CadastroCliente()
 sistema_banco = Banco()
-
 
 @app.route("/api/registrar", methods=["POST"])
 def registrar():
@@ -29,7 +28,6 @@ def registrar():
     else:
         return jsonify({"message": "Usuário já existe."}), 400
 
-
 @app.route("/api/login", methods=["POST"])
 def login():
     dados = request.json
@@ -41,14 +39,12 @@ def login():
     else:
         return jsonify({"message": "Usuário ou senha inválidos"}), 401
 
-
 @app.route("/api/saldo/<usuario>", methods=["GET"])
 def saldo(usuario):
     saldo = sistema_banco.consultar_saldo(usuario)
     if saldo is not None:
         return jsonify({"saldo": saldo})
     return jsonify({"message": "Usuário não encontrado"}), 404
-
 
 @app.route("/api/depositar", methods=["POST"])
 def depositar():
@@ -63,7 +59,6 @@ def depositar():
         return jsonify({"message": f"Depósito de R${valor:.2f} realizado com sucesso."})
     return jsonify({"message": "Falha no depósito"}), 400
 
-
 @app.route("/api/sacar", methods=["POST"])
 def sacar():
     dados = request.json
@@ -76,7 +71,6 @@ def sacar():
     if sistema_banco.sacar(usuario, valor):
         return jsonify({"message": f"Saque de R${valor:.2f} realizado com sucesso."})
     return jsonify({"message": "Saldo insuficiente ou erro no saque"}), 400
-
 
 @app.route("/api/cliente/<usuario>", methods=["GET"])
 def cliente(usuario):
@@ -91,6 +85,23 @@ def cliente(usuario):
         }
         return jsonify(retorno)
     return jsonify({"message": "Cliente não encontrado"}), 404
+
+
+@app.route("/api/transferir", methods=["POST"])
+def transferir():
+    dados = request.json
+    usuario_origem = dados.get("usuario_origem")
+    usuario_destino = dados.get("usuario_destino")
+    try:
+        valor = float(dados.get("valor"))
+    except (TypeError, ValueError):
+        return jsonify({"message": "Valor inválido"}), 400
+
+    sucesso = sistema_banco.transferir(usuario_origem, usuario_destino, valor)
+    if sucesso:
+        return jsonify({"message": f"Transferência de R${valor:.2f} realizada com sucesso."})
+    else:
+        return jsonify({"message": "Falha na transferência, saldo insuficiente ou usuário não encontrado."}), 400
 
 if __name__ == "__main__":
     app.run(debug=True)

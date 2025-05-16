@@ -21,7 +21,7 @@ class CadastroCliente:
 
     def calcular_idade(self, data_nascimento):
         hoje = datetime.today()
-        nascimento = datetime.strptime(data_nascimento, "%d/%m/%Y")
+        nascimento = datetime.strptime(data_nascimento, "%Y-%m-%d")
         idade = hoje.year - nascimento.year
         if hoje.month < nascimento.month or (hoje.month == nascimento.month and hoje.day < nascimento.day):
             idade -= 1

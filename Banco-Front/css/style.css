@@ -38,3 +38,47 @@ button {
 button:hover {
   background: #2980b9;
 }
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+h2 {
+  margin-top: 30px;
+  border-bottom: 2px solid #444;
+  padding-bottom: 5px;
+}
+section {
+  margin-bottom: 20px;
+}
+input, button {
+  padding: 8px;
+  margin: 5px 0;
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+}
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+#extrato-list {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 5px;
+  width: 320px;
+}
+#extrato-list li {
+  border-bottom: 1px solid #ddd;
+  padding: 5px 0;
+}
+#message {
+  margin-top: 10px;
+  font-weight: bold;
+}
+.flex-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
