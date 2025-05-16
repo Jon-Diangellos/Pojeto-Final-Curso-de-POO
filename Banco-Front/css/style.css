@@ -144,3 +144,12 @@ text-align: center;
     right: 10px;
     height: 40px;
 } 
+#titulo-principal {
+position: absolute;
+text-align: center;
+top: 10px;
+left: 400px;
+margin: 10px;
+padding: 10px;
+font-size: 24px;
+}
